@@ -14,23 +14,28 @@ export class AppComponent {
 
   selectedTodo: Todo = new Todo();
 
-  newTodo: Todo = new Todo();
-
   constructor(
     private todoService: TodoService,
   ) {}
 
-  onCreate(newTodo: Todo): void {}
+
+  onCreate(todo: Todo): void {
+     this.todoService.create(todo).subscribe(
+      () => console.log("todo created")
+    )
+  }
 
   onUpdate(todo: Todo): void {
     todo.active = !todo.active;
     this.todoService.update(todo).subscribe(
-    () => console.log("todo updated")
-  )
+      () => console.log("todo updated")
+    )
   }
 
   onDelete(todo: Todo): void {
-    this.todoService.delete(todo);
+    this.todoService.delete(todo).subscribe(
+      () => console.log("todo deleted")
+    )
   }
 
   onClickSort(): void {
