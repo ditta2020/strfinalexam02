@@ -10,7 +10,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    SorterPipe
+    SorterPipe,
     FilterPipe
   ],
   imports: [

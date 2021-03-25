@@ -14,6 +14,8 @@ export class AppComponent {
 
   phraseString: string = '';
 
+  columnKey: string = '';
+
   selectedTodo: Todo = new Todo();
 
   constructor(
@@ -39,11 +41,11 @@ export class AppComponent {
     )
   }
 
-    onChangePhrase(event: Event): void {
+  onChangePhrase(event: Event): void {
     this.phraseString = (event.target as HTMLInputElement).value;
   }
 
   onClickSort(): void {
-    
+    this.columnKey = 'title';
   }
 }

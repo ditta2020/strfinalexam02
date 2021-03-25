@@ -6,16 +6,15 @@ import { Todo } from '../model/todo';
 })
 export class SorterPipe implements PipeTransform {
 
- transform(value: any[] | null): any[] | null {
-   console.log(value);
+ transform(value: any[] | null, key: string): any[] | null {
     
-    if (!Array.isArray(value)) {
-       return value;
-     }
+    if (!Array.isArray(value) || !key || typeof(key) !== 'string') {
+      return value;
+    }
 
     return value.sort((a, b) => {
-      const strA = ('' + a.title).toLowerCase();
-      const strB = ('' + b.title).toLowerCase();
+      const strA = ('' + a[key]).toLowerCase();
+      const strB = ('' + b[key]).toLowerCase();
       return strA.localeCompare(strB);
     });
 
