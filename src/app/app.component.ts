@@ -17,4 +17,17 @@ export class AppComponent {
   constructor(
     private todoService: TodoService,
   ) {}
+
+  onUpdate(product: Product): void {
+    product.active = !product.active;
+    this.productService.update(product).subscribe(
+    () => console.log("product updated")
+  )
+  }
+
+  onDelete(todo: Todo): void {
+    this.todoService.delete(todo).subscribe(
+      console.log("todo deleted");
+    )
+  }
 }
