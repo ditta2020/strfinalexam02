@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SorterPipe } from './pipe/sorter.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SorterPipe
+    FilterPipe
   ],
   imports: [
     BrowserModule,

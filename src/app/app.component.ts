@@ -12,12 +12,13 @@ export class AppComponent {
 
   todos$: Observable<Todo[]> = this.todoService.getAll();
 
+  phraseString: string = '';
+
   selectedTodo: Todo = new Todo();
 
   constructor(
     private todoService: TodoService,
   ) {}
-
 
   onCreate(todo: Todo): void {
      this.todoService.create(todo).subscribe(
@@ -36,6 +37,10 @@ export class AppComponent {
     this.todoService.delete(todo).subscribe(
       () => console.log("todo deleted")
     )
+  }
+
+    onChangePhrase(event: Event): void {
+    this.phraseString = (event.target as HTMLInputElement).value;
   }
 
   onClickSort(): void {
