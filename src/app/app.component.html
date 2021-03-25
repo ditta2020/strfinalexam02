@@ -10,19 +10,19 @@
   <div class="row">
     <div class="col-12 col-md-8 offset-md-2 mt-5">
       <h3>Create a Todo</h3>
-      <form #todoForm="ngForm">
+      <form #todoForm="ngForm" (ngSubmit)="onCreate(newTodo)">
         <div class="form-group">
           <label>Title</label>
           <!-- Kötelező kitölteni, kisbetűk, nagybetűk, számok, szóköz, legalább 5 karakter. -->
-          <input name="title" [(ngModel)]="selectedTodo.title" type="text" class="form-control">
+          <input required pattern="[A-Űa-ű0-9 ]{5,}" name="title" [(ngModel)]="selectedTodo.title" type="text" class="form-control">
         </div>
         <div class="form-group">
           <label>Description</label>
           <!-- Kötelező kitölteni, kisbetűk, nagybetűk, számok, szóköz, legalább 25 karakter. -->
-          <textarea name="description" [(ngModel)]="selectedTodo.description" class="form-control">
+          <textarea required pattern="[A-Űa-ű0-9 ]{25,}" name="description" [(ngModel)]="selectedTodo.description" class="form-control">
             </textarea>
         </div>
-        <button class="btn btn-primary btn-block mt-2">
+        <button [disabled]="todoForm.invalid" class="btn btn-primary btn-block mt-2">
           <i class="fa fa-save"></i>
         </button>
       </form>

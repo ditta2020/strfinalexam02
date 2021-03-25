@@ -14,9 +14,13 @@ export class AppComponent {
 
   selectedTodo: Todo = new Todo();
 
+  newTodo: Todo = new Todo();
+
   constructor(
     private todoService: TodoService,
   ) {}
+
+  onCreate(newTodo: Todo): void {}
 
   onUpdate(todo: Todo): void {
     todo.active = !todo.active;
