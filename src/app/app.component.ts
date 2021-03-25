@@ -18,12 +18,12 @@ export class AppComponent {
     private todoService: TodoService,
   ) {}
 
-  /* onUpdate(product: Product): void {
-    product.active = !product.active;
-    this.productService.update(product).subscribe(
-    () => console.log("product updated")
+  onUpdate(todo: Todo): void {
+    todo.active = !todo.active;
+    this.todoService.update(todo).subscribe(
+    () => console.log("todo updated")
   )
-  } */
+  }
 
   onDelete(todo: Todo): void {
     this.todoService.delete(todo);
